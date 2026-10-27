@@ -1,0 +1,1137 @@
+{
+ "version": "1.0.0",
+ "dataset": {
+  "name": "Wisconsin Diagnostic Breast Cancer (WDBC)",
+  "n_samples": 569,
+  "n_features": 30,
+  "n_train": 455,
+  "n_test": 114,
+  "class_balance": {
+   "benign": 357,
+   "malignant": 212
+  },
+  "groups": {
+   "mean": [
+    "mean radius",
+    "mean texture",
+    "mean perimeter",
+    "mean area",
+    "mean smoothness",
+    "mean compactness",
+    "mean concavity",
+    "mean concave points",
+    "mean symmetry",
+    "mean fractal dimension"
+   ],
+   "error": [
+    "radius error",
+    "texture error",
+    "perimeter error",
+    "area error",
+    "smoothness error",
+    "compactness error",
+    "concavity error",
+    "concave points error",
+    "symmetry error",
+    "fractal dimension error"
+   ],
+   "worst": [
+    "worst radius",
+    "worst texture",
+    "worst perimeter",
+    "worst area",
+    "worst smoothness",
+    "worst compactness",
+    "worst concavity",
+    "worst concave points",
+    "worst symmetry",
+    "worst fractal dimension"
+   ]
+  }
+ },
+ "model": {
+  "type": "Standardized logistic regression (L2)",
+  "C": 1.0,
+  "intercept": -0.24300532690560228,
+  "positive_class": "malignant",
+  "cv_roc_auc": 0.9958
+ },
+ "features": [
+  {
+   "name": "mean radius",
+   "mean": 14.166076923076924,
+   "scale": 3.575145842966192,
+   "coef": 0.361150068449133,
+   "min": 6.981,
+   "max": 28.11,
+   "median_benign": 12.21,
+   "median_malignant": 17.385,
+   "mean_abs_contribution": 0.26648,
+   "permutation_importance": -4e-05
+  },
+  {
+   "name": "mean texture",
+   "mean": 19.417692307692306,
+   "scale": 4.285935362007162,
+   "coef": 0.48221940329617946,
+   "min": 9.71,
+   "max": 39.28,
+   "median_benign": 17.53,
+   "median_malignant": 21.520000000000003,
+   "mean_abs_contribution": 0.38886,
+   "permutation_importance": -0.00098
+  },
+  {
+   "name": "mean perimeter",
+   "mean": 92.21586813186812,
+   "scale": 24.6899414867669,
+   "coef": 0.35315986626691276,
+   "min": 43.79,
+   "max": 188.5,
+   "median_benign": 78.18,
+   "median_malignant": 114.30000000000001,
+   "mean_abs_contribution": 0.25909,
+   "permutation_importance": 3e-05
+  },
+  {
+   "name": "mean area",
+   "mean": 659.5782417582418,
+   "scale": 360.0224032546589,
+   "coef": 0.43995028198850394,
+   "min": 143.5,
+   "max": 2501.0,
+   "median_benign": 460.3,
+   "median_malignant": 940.45,
+   "mean_abs_contribution": 0.30688,
+   "permutation_importance": -2e-05
+  },
+  {
+   "name": "mean smoothness",
+   "mean": 0.09599294505494504,
+   "scale": 0.014293957445666316,
+   "coef": 0.3506215582917169,
+   "min": 0.06251,
+   "max": 0.1634,
+   "median_benign": 0.08983,
+   "median_malignant": 0.10255,
+   "mean_abs_contribution": 0.25685,
+   "permutation_importance": 0.0003
+  },
+  {
+   "name": "mean compactness",
+   "mean": 0.10383485714285715,
+   "scale": 0.05385095918959042,
+   "coef": -0.43954614808744313,
+   "min": 0.01938,
+   "max": 0.3454,
+   "median_benign": 0.07325,
+   "median_malignant": 0.13185,
+   "mean_abs_contribution": 0.32164,
+   "permutation_importance": -0.00128
+  },
+  {
+   "name": "mean concavity",
+   "mean": 0.08918428285714286,
+   "scale": 0.08160817457896849,
+   "coef": 0.7822983533225192,
+   "min": 0.0,
+   "max": 0.4268,
+   "median_benign": 0.03709,
+   "median_malignant": 0.14905000000000002,
+   "mean_abs_contribution": 0.55022,
+   "permutation_importance": 0.00276
+  },
+  {
+   "name": "mean concave points",
+   "mean": 0.0490145978021978,
+   "scale": 0.03964233748792279,
+   "coef": 0.9528128318119825,
+   "min": 0.0,
+   "max": 0.2012,
+   "median_benign": 0.02331,
+   "median_malignant": 0.08639,
+   "mean_abs_contribution": 0.70005,
+   "permutation_importance": 0.00297
+  },
+  {
+   "name": "mean symmetry",
+   "mean": 0.18149714285714286,
+   "scale": 0.02761585252202172,
+   "coef": -0.1639908683770673,
+   "min": 0.106,
+   "max": 0.304,
+   "median_benign": 0.1717,
+   "median_malignant": 0.19075,
+   "mean_abs_contribution": 0.12607,
+   "permutation_importance": -0.00034
+  },
+  {
+   "name": "mean fractal dimension",
+   "mean": 0.06271481318681318,
+   "scale": 0.006962934577614083,
+   "coef": -0.08086512047777432,
+   "min": 0.05024,
+   "max": 0.09744,
+   "median_benign": 0.06128,
+   "median_malignant": 0.061575000000000005,
+   "mean_abs_contribution": 0.06135,
+   "permutation_importance": -0.00036
+  },
+  {
+   "name": "radius error",
+   "mean": 0.4111872527472527,
+   "scale": 0.2898637344353451,
+   "coef": 1.2333251663808187,
+   "min": 0.1115,
+   "max": 2.873,
+   "median_benign": 0.2589,
+   "median_malignant": 0.5472,
+   "mean_abs_contribution": 0.74963,
+   "permutation_importance": 0.0011
+  },
+  {
+   "name": "texture error",
+   "mean": 1.217881978021978,
+   "scale": 0.5517048705229317,
+   "coef": -0.4076112582620644,
+   "min": 0.3602,
+   "max": 4.885,
+   "median_benign": 1.13,
+   "median_malignant": 1.1484999999999999,
+   "mean_abs_contribution": 0.32071,
+   "permutation_importance": 0.00143
+  },
+  {
+   "name": "perimeter error",
+   "mean": 2.9115687912087918,
+   "scale": 2.120784564278267,
+   "coef": 0.7482947115713595,
+   "min": 0.757,
+   "max": 21.98,
+   "median_benign": 1.874,
+   "median_malignant": 3.6795,
+   "mean_abs_contribution": 0.42842,
+   "permutation_importance": 0.00017
+  },
+  {
+   "name": "area error",
+   "mean": 41.27910329670329,
+   "scale": 48.33097570059751,
+   "coef": 0.9090290582882165,
+   "min": 6.802,
+   "max": 542.2,
+   "median_benign": 19.91,
+   "median_malignant": 59.58,
+   "mean_abs_contribution": 0.4669,
+   "permutation_importance": 0.0002
+  },
+  {
+   "name": "smoothness error",
+   "mean": 0.006895252747252748,
+   "scale": 0.002851470755239646,
+   "coef": 0.24799098171630335,
+   "min": 0.001713,
+   "max": 0.03113,
+   "median_benign": 0.00647,
+   "median_malignant": 0.0061365,
+   "mean_abs_contribution": 0.20531,
+   "permutation_importance": -0.00031
+  },
+  {
+   "name": "compactness error",
+   "mean": 0.025323432967032967,
+   "scale": 0.017604664703992863,
+   "coef": -0.9069248024192622,
+   "min": 0.002252,
+   "max": 0.1064,
+   "median_benign": 0.01647,
+   "median_malignant": 0.027880000000000002,
+   "mean_abs_contribution": 0.69047,
+   "permutation_importance": 0.00013
+  },
+  {
+   "name": "concavity error",
+   "mean": 0.03201755076923077,
+   "scale": 0.03169439851379008,
+   "coef": -0.09234069448239463,
+   "min": 0.0,
+   "max": 0.396,
+   "median_benign": 0.01861,
+   "median_malignant": 0.037035,
+   "mean_abs_contribution": 0.05339,
+   "permutation_importance": -0.00012
+  },
+  {
+   "name": "concave points error",
+   "mean": 0.011690617582417583,
+   "scale": 0.0062823507239402,
+   "coef": 0.48208907859235267,
+   "min": 0.0,
+   "max": 0.05279,
+   "median_benign": 0.009064,
+   "median_malignant": 0.0139,
+   "mean_abs_contribution": 0.35103,
+   "permutation_importance": 0.00032
+  },
+  {
+   "name": "symmetry error",
+   "mean": 0.0204266989010989,
+   "scale": 0.008301452158911843,
+   "coef": -0.33065773405654075,
+   "min": 0.007882,
+   "max": 0.07895,
+   "median_benign": 0.01897,
+   "median_malignant": 0.017835,
+   "mean_abs_contribution": 0.22941,
+   "permutation_importance": -3e-05
+  },
+  {
+   "name": "fractal dimension error",
+   "mean": 0.003766038021978022,
+   "scale": 0.0026291028502456334,
+   "coef": -0.5938763200364325,
+   "min": 0.0008948,
+   "max": 0.02984,
+   "median_benign": 0.002788,
+   "median_malignant": 0.003741,
+   "mean_abs_contribution": 0.38483,
+   "permutation_importance": -0.00033
+  },
+  {
+   "name": "worst radius",
+   "mean": 16.351514285714288,
+   "scale": 4.895648476314663,
+   "coef": 0.8969678339058802,
+   "min": 7.93,
+   "max": 36.04,
+   "median_benign": 13.35,
+   "median_malignant": 20.85,
+   "mean_abs_contribution": 0.66059,
+   "permutation_importance": 0.002
+  },
+  {
+   "name": "worst texture",
+   "mean": 25.90487912087912,
+   "scale": 6.072847254508961,
+   "coef": 1.4340931710338392,
+   "min": 12.02,
+   "max": 49.54,
+   "median_benign": 22.94,
+   "median_malignant": 29.47,
+   "mean_abs_contribution": 1.2312,
+   "permutation_importance": 0.01005
+  },
+  {
+   "name": "worst perimeter",
+   "mean": 107.86048351648353,
+   "scale": 34.13844252141843,
+   "coef": 0.7231114802873424,
+   "min": 50.41,
+   "max": 251.2,
+   "median_benign": 87.0,
+   "median_malignant": 139.35,
+   "mean_abs_contribution": 0.52609,
+   "permutation_importance": 0.0014
+  },
+  {
+   "name": "worst area",
+   "mean": 890.5692307692308,
+   "scale": 581.7058880535004,
+   "coef": 0.9004766112545068,
+   "min": 185.2,
+   "max": 4254.0,
+   "median_benign": 547.8,
+   "median_malignant": 1317.5,
+   "mean_abs_contribution": 0.62278,
+   "permutation_importance": 0.00148
+  },
+  {
+   "name": "worst smoothness",
+   "mean": 0.13208303296703297,
+   "scale": 0.023455373508121897,
+   "coef": 0.4202067546570042,
+   "min": 0.07117,
+   "max": 0.2226,
+   "median_benign": 0.1234,
+   "median_malignant": 0.14429999999999998,
+   "mean_abs_contribution": 0.27416,
+   "permutation_importance": 0.00095
+  },
+  {
+   "name": "worst compactness",
+   "mean": 0.25552947252747255,
+   "scale": 0.15822586358561638,
+   "coef": -0.17348750804499355,
+   "min": 0.02729,
+   "max": 1.058,
+   "median_benign": 0.171,
+   "median_malignant": 0.3553,
+   "mean_abs_contribution": 0.13103,
+   "permutation_importance": -0.00104
+  },
+  {
+   "name": "worst concavity",
+   "mean": 0.27516636703296704,
+   "scale": 0.21183314368274303,
+   "coef": 0.9114058021854969,
+   "min": 0.0,
+   "max": 1.252,
+   "median_benign": 0.1423,
+   "median_malignant": 0.41265,
+   "mean_abs_contribution": 0.67769,
+   "permutation_importance": 0.00771
+  },
+  {
+   "name": "worst concave points",
+   "mean": 0.11549070549450549,
+   "scale": 0.06677035672401135,
+   "coef": 0.703998806703189,
+   "min": 0.0,
+   "max": 0.291,
+   "median_benign": 0.07431,
+   "median_malignant": 0.1827,
+   "mean_abs_contribution": 0.54657,
+   "permutation_importance": 0.00302
+  },
+  {
+   "name": "worst symmetry",
+   "mean": 0.2913637362637363,
+   "scale": 0.06297407475727483,
+   "coef": 1.0612636621709468,
+   "min": 0.1565,
+   "max": 0.6638,
+   "median_benign": 0.2688,
+   "median_malignant": 0.3109,
+   "mean_abs_contribution": 0.74369,
+   "permutation_importance": 0.0102
+  },
+  {
+   "name": "worst fractal dimension",
+   "mean": 0.0841236923076923,
+   "scale": 0.018148675899809178,
+   "coef": 0.05486987894732406,
+   "min": 0.05504,
+   "max": 0.2075,
+   "median_benign": 0.07712,
+   "median_malignant": 0.08689,
+   "mean_abs_contribution": 0.04073,
+   "permutation_importance": 3e-05
+  }
+ ],
+ "metrics": {
+  "threshold": 0.5,
+  "accuracy": 0.9649,
+  "sensitivity": 0.9286,
+  "specificity": 0.9861,
+  "precision": 0.975,
+  "f1": 0.9512,
+  "roc_auc": 0.996,
+  "brier": 0.0213,
+  "confusion_matrix": {
+   "tn": 71,
+   "fp": 1,
+   "fn": 3,
+   "tp": 39
+  },
+  "roc_curve": [
+   [
+    0.0,
+    0.0,
+    1.0
+   ],
+   [
+    0.0,
+    0.0238,
+    1.0
+   ],
+   [
+    0.0,
+    0.9286,
+    0.5762
+   ],
+   [
+    0.0139,
+    0.9286,
+    0.5092
+   ],
+   [
+    0.0139,
+    0.9762,
+    0.3145
+   ],
+   [
+    0.1389,
+    0.9762,
+    0.0668
+   ],
+   [
+    0.1389,
+    1.0,
+    0.0614
+   ],
+   [
+    1.0,
+    1.0,
+    0.0
+   ]
+  ],
+  "test_predictions": [
+   [
+    0.00036,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.04257,
+    0
+   ],
+   [
+    0.57619,
+    1
+   ],
+   [
+    0.50916,
+    0
+   ],
+   [
+    0.00062,
+    0
+   ],
+   [
+    0.76153,
+    1
+   ],
+   [
+    0.00101,
+    0
+   ],
+   [
+    0.00057,
+    0
+   ],
+   [
+    0.01077,
+    0
+   ],
+   [
+    0.93091,
+    1
+   ],
+   [
+    7e-05,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.00439,
+    0
+   ],
+   [
+    0.00775,
+    0
+   ],
+   [
+    0.0,
+    0
+   ],
+   [
+    0.06143,
+    1
+   ],
+   [
+    0.00036,
+    0
+   ],
+   [
+    0.22176,
+    0
+   ],
+   [
+    5e-05,
+    0
+   ],
+   [
+    0.00127,
+    0
+   ],
+   [
+    0.0043,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.99832,
+    1
+   ],
+   [
+    0.75761,
+    1
+   ],
+   [
+    0.00021,
+    0
+   ],
+   [
+    0.00017,
+    0
+   ],
+   [
+    0.96917,
+    1
+   ],
+   [
+    0.99664,
+    1
+   ],
+   [
+    0.99958,
+    1
+   ],
+   [
+    0.99999,
+    1
+   ],
+   [
+    0.00237,
+    0
+   ],
+   [
+    0.99996,
+    1
+   ],
+   [
+    0.99995,
+    1
+   ],
+   [
+    0.00027,
+    0
+   ],
+   [
+    0.0139,
+    0
+   ],
+   [
+    0.00202,
+    0
+   ],
+   [
+    0.0,
+    0
+   ],
+   [
+    0.99093,
+    1
+   ],
+   [
+    0.09319,
+    0
+   ],
+   [
+    0.00013,
+    0
+   ],
+   [
+    0.00035,
+    0
+   ],
+   [
+    0.85233,
+    1
+   ],
+   [
+    0.00251,
+    0
+   ],
+   [
+    0.01082,
+    0
+   ],
+   [
+    0.95407,
+    1
+   ],
+   [
+    0.07569,
+    0
+   ],
+   [
+    0.99851,
+    1
+   ],
+   [
+    6e-05,
+    0
+   ],
+   [
+    0.00112,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.99846,
+    1
+   ],
+   [
+    0.00713,
+    0
+   ],
+   [
+    0.00105,
+    0
+   ],
+   [
+    0.00012,
+    0
+   ],
+   [
+    0.98803,
+    1
+   ],
+   [
+    0.05206,
+    0
+   ],
+   [
+    0.0,
+    0
+   ],
+   [
+    0.0005,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.01517,
+    0
+   ],
+   [
+    0.07334,
+    0
+   ],
+   [
+    0.90175,
+    1
+   ],
+   [
+    0.0,
+    0
+   ],
+   [
+    0.01516,
+    0
+   ],
+   [
+    0.0036,
+    0
+   ],
+   [
+    0.99971,
+    1
+   ],
+   [
+    0.99985,
+    1
+   ],
+   [
+    0.01378,
+    0
+   ],
+   [
+    0.88331,
+    1
+   ],
+   [
+    0.00015,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.99989,
+    1
+   ],
+   [
+    0.00012,
+    0
+   ],
+   [
+    0.00028,
+    0
+   ],
+   [
+    0.03348,
+    0
+   ],
+   [
+    2e-05,
+    0
+   ],
+   [
+    0.9954,
+    1
+   ],
+   [
+    0.01022,
+    0
+   ],
+   [
+    0.9739,
+    1
+   ],
+   [
+    0.98914,
+    1
+   ],
+   [
+    0.99998,
+    1
+   ],
+   [
+    3e-05,
+    0
+   ],
+   [
+    0.00182,
+    0
+   ],
+   [
+    2e-05,
+    0
+   ],
+   [
+    0.23512,
+    0
+   ],
+   [
+    0.99998,
+    1
+   ],
+   [
+    0.31453,
+    1
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.00014,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.0,
+    0
+   ],
+   [
+    0.09367,
+    0
+   ],
+   [
+    0.00188,
+    0
+   ],
+   [
+    0.01055,
+    0
+   ],
+   [
+    0.00232,
+    0
+   ],
+   [
+    0.06682,
+    0
+   ],
+   [
+    0.88538,
+    1
+   ],
+   [
+    0.00049,
+    0
+   ],
+   [
+    5e-05,
+    0
+   ],
+   [
+    1e-05,
+    0
+   ],
+   [
+    0.00071,
+    0
+   ],
+   [
+    0.02374,
+    0
+   ],
+   [
+    0.01012,
+    0
+   ],
+   [
+    0.00157,
+    0
+   ],
+   [
+    0.00223,
+    0
+   ],
+   [
+    0.99999,
+    1
+   ],
+   [
+    0.20053,
+    0
+   ],
+   [
+    1.0,
+    1
+   ],
+   [
+    0.00012,
+    0
+   ],
+   [
+    0.00037,
+    0
+   ],
+   [
+    0.11556,
+    0
+   ],
+   [
+    0.49161,
+    1
+   ],
+   [
+    0.99926,
+    1
+   ]
+  ]
+ },
+ "comparison": [
+  {
+   "model": "Logistic regression",
+   "roc_auc": 0.9958,
+   "roc_auc_std": 0.0047,
+   "accuracy": 0.9736,
+   "accuracy_std": 0.0149,
+   "recall": 0.9529,
+   "recall_std": 0.0399,
+   "precision": 0.9771,
+   "precision_std": 0.028,
+   "f1": 0.964,
+   "f1_std": 0.0207
+  },
+  {
+   "model": "SVM (RBF kernel)",
+   "roc_auc": 0.9949,
+   "roc_auc_std": 0.005,
+   "accuracy": 0.9714,
+   "accuracy_std": 0.0054,
+   "recall": 0.9471,
+   "recall_std": 0.0343,
+   "precision": 0.9769,
+   "precision_std": 0.021,
+   "f1": 0.961,
+   "f1_std": 0.0082
+  },
+  {
+   "model": "Gradient boosting",
+   "roc_auc": 0.9908,
+   "roc_auc_std": 0.0054,
+   "accuracy": 0.967,
+   "accuracy_std": 0.0139,
+   "recall": 0.9471,
+   "recall_std": 0.0343,
+   "precision": 0.9646,
+   "precision_std": 0.0211,
+   "f1": 0.9553,
+   "f1_std": 0.0196
+  },
+  {
+   "model": "Random forest",
+   "roc_auc": 0.988,
+   "roc_auc_std": 0.0073,
+   "accuracy": 0.9604,
+   "accuracy_std": 0.0164,
+   "recall": 0.9353,
+   "recall_std": 0.039,
+   "precision": 0.9584,
+   "precision_std": 0.0221,
+   "f1": 0.9461,
+   "f1_std": 0.0226
+  }
+ ],
+ "examples": [
+  {
+   "label": "Clear benign",
+   "true_class": "benign",
+   "values": [
+    8.888,
+    14.64,
+    58.79,
+    244.0,
+    0.09783,
+    0.1531,
+    0.08606,
+    0.02872,
+    0.1902,
+    0.0898,
+    0.5262,
+    0.8522,
+    3.168,
+    25.44,
+    0.01721,
+    0.09368,
+    0.05671,
+    0.01766,
+    0.02541,
+    0.02193,
+    9.733,
+    15.67,
+    62.56,
+    284.4,
+    0.1207,
+    0.2436,
+    0.1434,
+    0.04786,
+    0.2254,
+    0.1084
+   ]
+  },
+  {
+   "label": "Clear malignant",
+   "true_class": "malignant",
+   "values": [
+    23.09,
+    19.83,
+    152.1,
+    1682.0,
+    0.09342,
+    0.1275,
+    0.1676,
+    0.1003,
+    0.1505,
+    0.05484,
+    1.291,
+    0.7452,
+    9.635,
+    180.2,
+    0.005753,
+    0.03356,
+    0.03976,
+    0.02156,
+    0.02201,
+    0.002897,
+    30.79,
+    23.87,
+    211.5,
+    2782.0,
+    0.1199,
+    0.3625,
+    0.3794,
+    0.2264,
+    0.2908,
+    0.07277
+   ]
+  },
+  {
+   "label": "Borderline",
+   "true_class": "malignant",
+   "values": [
+    15.12,
+    16.68,
+    98.78,
+    716.6,
+    0.08876,
+    0.09588,
+    0.0755,
+    0.04079,
+    0.1594,
+    0.05986,
+    0.2711,
+    0.3621,
+    1.974,
+    26.44,
+    0.005472,
+    0.01919,
+    0.02039,
+    0.00826,
+    0.01523,
+    0.002881,
+    17.77,
+    20.24,
+    117.7,
+    989.5,
+    0.1491,
+    0.3331,
+    0.3327,
+    0.1252,
+    0.3415,
+    0.0974
+   ]
+  },
+  {
+   "label": "Misclassified",
+   "true_class": "malignant",
+   "values": [
+    13.8,
+    15.79,
+    90.43,
+    584.1,
+    0.1007,
+    0.128,
+    0.07789,
+    0.05069,
+    0.1662,
+    0.06566,
+    0.2787,
+    0.6205,
+    1.957,
+    23.35,
+    0.004717,
+    0.02065,
+    0.01759,
+    0.009206,
+    0.0122,
+    0.00313,
+    16.57,
+    20.86,
+    110.3,
+    812.4,
+    0.1411,
+    0.3542,
+    0.2779,
+    0.1383,
+    0.2589,
+    0.103
+   ]
+  }
+ ]
+}

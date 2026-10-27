@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breast Mass Classifier</title>
+  <meta name="description" content="Classify a breast mass as benign or malignant from fine needle aspirate measurements, and see exactly which measurements drove the prediction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='14' r='9' fill='%234450b0' fill-opacity='.85'/%3E%3Ccircle cx='20' cy='18' r='9' fill='%23c4316e' fill-opacity='.85'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#lab">Skip to the classifier</a>
+
+  <header class="masthead">
+    <div class="wrap">
+      <h1>Benign or malignant?</h1>
+      <p class="lede">
+        A machine learning model reads 30 measurements of cell nuclei from a
+        fine needle aspirate and estimates how likely the breast mass is to be
+        malignant. Every prediction comes with the reasons behind it.
+      </p>
+      <p class="notice" role="note">
+        Portfolio demonstration on a public research dataset. Not a medical
+        device and not for diagnosis.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section id="lab" class="lab wrap" aria-labelledby="lab-title">
+      <h2 id="lab-title" class="visually-hidden">Try the classifier</h2>
+
+      <div class="panel case">
+        <div class="panel-head">
+          <h3>Case</h3>
+          <p class="hint">Load a real case from the test set, or move any measurement.</p>
+        </div>
+        <div class="examples" id="examples" role="group" aria-label="Example cases"></div>
+
+        <div class="tabs" role="tablist" aria-label="Measurement group">
+          <button role="tab" id="tab-worst" aria-controls="sliders" aria-selected="true" data-group="worst">Worst</button>
+          <button role="tab" id="tab-mean" aria-controls="sliders" aria-selected="false" data-group="mean">Mean</button>
+          <button role="tab" id="tab-error" aria-controls="sliders" aria-selected="false" data-group="error">Standard error</button>
+        </div>
+        <p class="group-note" id="group-note"></p>
+        <div class="sliders" id="sliders" role="tabpanel" aria-labelledby="tab-worst"></div>
+        <p class="legend-ticks">
+          <span class="tick-key benign" aria-hidden="true"></span> typical benign
+          <span class="tick-key malignant" aria-hidden="true"></span> typical malignant
+        </p>
+      </div>
+
+      <div class="panel result" aria-live="polite">
+        <div class="verdict">
+          <p class="verdict-label" id="verdict-label">Loading model…</p>
+          <p class="verdict-prob"><span id="prob">–</span> estimated probability of malignancy</p>
+          <div class="meter" id="meter" aria-hidden="true">
+            <div class="meter-fill" id="meter-fill"></div>
+            <div class="meter-threshold" id="meter-threshold"><span>threshold</span></div>
+          </div>
+          <p class="truth" id="truth"></p>
+        </div>
+
+        <div class="why">
+          <h3>Why the model thinks so</h3>
+          <p class="hint" id="why-summary"></p>
+          <div class="axis-labels" aria-hidden="true">
+            <span class="to-benign">Toward benign</span>
+            <span class="to-malignant">Toward malignant</span>
+          </div>
+          <div class="contrib" id="contrib" role="list"></div>
+          <details class="method">
+            <summary>How these explanations are calculated</summary>
+            <p>
+              The model is a logistic regression on standardized measurements.
+              Its score for malignancy (in log-odds) is a starting value plus
+              one term per measurement: the measurement's weight times how many
+              standard deviations it sits from the average training case. Each
+              bar is one of those terms, so the bars add up exactly to the
+              prediction. For a linear model this matches the SHAP value of
+              each feature, with no approximation.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap block" aria-labelledby="perf-title">
+      <h2 id="perf-title">How reliable is it?</h2>
+      <p class="section-lede">
+        Measured once on 114 cases the model never saw during training or tuning.
+        Missing a malignant mass is worse than a false alarm, so the decision
+        threshold is yours to move: lowering it catches more cancers at the cost
+        of more false alarms.
+      </p>
+
+      <div class="threshold-control">
+        <label for="threshold">Decision threshold: flag as malignant when probability is at least <output id="threshold-out" for="threshold">50%</output></label>
+        <input type="range" id="threshold" min="0.02" max="0.98" step="0.01" value="0.5">
+      </div>
+
+      <div class="perf">
+        <dl class="stats" id="stats"></dl>
+        <figure class="cm-figure">
+          <table class="cm" id="cm">
+            <caption>Test set outcomes at this threshold</caption>
+          </table>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap block" aria-labelledby="learned-title">
+      <h2 id="learned-title">What the model learned</h2>
+      <div class="two-col">
+        <div>
+          <h3>Most influential measurements</h3>
+          <p class="hint">Average size of each measurement's push on test-set predictions.</p>
+          <div class="importance" id="importance" role="list"></div>
+        </div>
+        <div>
+          <h3>Why logistic regression</h3>
+          <p class="hint">Five-fold cross-validation on the training set. The simplest model was also the most accurate, so nothing is traded away for explainability.</p>
+          <div class="table-scroll">
+            <table class="compare" id="compare">
+              <thead><tr><th scope="col">Model</th><th scope="col">ROC AUC</th><th scope="col">Sensitivity</th><th scope="col">Accuracy</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap block about" aria-labelledby="about-title">
+      <h2 id="about-title">About the data and its limits</h2>
+      <div class="two-col prose">
+        <div>
+          <p>
+            The <a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic">Wisconsin Diagnostic Breast Cancer dataset</a>
+            has 569 cases (357 benign, 212 malignant) from the University of Wisconsin.
+            Each image of a fine needle aspirate was digitized and ten properties of
+            the cell nuclei measured: radius, texture, perimeter, area, smoothness,
+            compactness, concavity, concave points, symmetry and fractal dimension.
+            For each one the dataset records the mean, the standard error, and the
+            worst value (mean of the three largest).
+          </p>
+        </div>
+        <div>
+          <p>
+            Many measurements are strongly correlated (radius, perimeter and area
+            describe the same size), so individual weights should be read as a
+            group. A small negative weight on one size measurement mostly corrects
+            for its neighbours. The data come from one institution in the 1990s, and
+            a model like this would need validation on new populations, imaging
+            equipment and clinical workflows before any real use.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Built with scikit-learn and plain JavaScript. The model runs entirely in your browser; nothing you enter leaves this page.</p>
+    <p><a id="repo-link" href="https://github.com/">Source code on GitHub</a></p>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
